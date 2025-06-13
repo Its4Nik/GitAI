@@ -1,6 +1,19 @@
 {
-  "name": "ai-git-commits",
+  "name": "gitai",
+  "version": "1.0.0",
   "module": "src/cli.ts",
+  "license": "MIT",
+  "keywords": [
+    "AI",
+    "Git",
+    "Selfhost",
+    "Helper",
+    "CLI"
+  ],
+  "author": {
+    "name": "Its4Nik",
+    "email": "info@itsnik.de"
+  },
   "type": "module",
   "scripts": {
     "lint": "biome check --formatter-enabled=true --linter-enabled=true --organize-imports-enabled=true --fix src"
@@ -15,6 +28,7 @@
   "dependencies": {
     "@google/generative-ai": "^0.24.1",
     "commander": "^14.0.0",
-    "inquirer": "^12.6.3"
+    "inquirer": "^12.6.3",
+    "ollama": "^0.5.16"
   }
 }

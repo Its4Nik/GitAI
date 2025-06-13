@@ -1,26 +1,30 @@
+import ollama from "ollama";
 import type { AIProvider, ProviderConfig } from "./types";
 
 export const OllamaProvider: AIProvider = {
 	generate: async (prompt, config: ProviderConfig = {}) => {
-		const baseUrl = config.baseUrl || "http://localhost:11434";
-		const model = config.model || "llama3";
-
-		const response = await fetch(`${baseUrl}/api/generate`, {
-			method: "POST",
-			headers: { "Content-Type": "application/json" },
-			body: JSON.stringify({
-				model,
-				prompt,
+		try {
+			const response = await ollama.chat({
+				model: config.model || "llama3",
+				messages: [
+					{
+						role: "user",
+						content: prompt,
+					},
+				],
 				stream: false,
-			}),
-		});
+				options: {
+					temperature: 0.2,
+					...config,
+				},
+			});
 
-		if (!response.ok) {
-			throw new Error(`Ollama API error: ${response.statusText}`);
+			return response.message.content.trim();
+		} catch (error) {
+			throw new Error(
+				`Ollama API error: ${error instanceof Error ? error.message : error}`,
+			);
 		}
-
-		const data = await response.json();
-		return data.response.trim();
 	},
 	models: ["llama3", "mistral", "codellama"],
 };
