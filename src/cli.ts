@@ -11,7 +11,7 @@ const program = new Command();
 program
   .name("gitai")
   .description("AI-powered Git utilities")
-  .version("1.0.4")
+  .version("1.0.6")
   .option("--debug", "Enable debug logging", false)
   .hook("preAction", (thisCommand) => {
     if (thisCommand.opts().debug) {

@@ -1,6 +1,6 @@
 {
   "name": "@its_4_nik/gitai",
-  "version": "1.0.4",
+  "version": "1.0.6",
   "main": "dist/cli.js",
   "module": "src/cli.ts",
   "license": "MIT",
@@ -29,7 +29,7 @@
   "scripts": {
     "build": "bun build ./src/cli.ts --outfile ./dist/cli.js --production --target=bun --minify",
     "lint": "biome check --formatter-enabled=true --linter-enabled=true --organize-imports-enabled=true --fix src",
-    "publish": "bun run lint && bun run build && npm publish --access=public --scope=@its_4_nik"
+    "publish": "bun run build && npm publish --access=public --scope=@its_4_nik"
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
