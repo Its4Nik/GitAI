@@ -1,0 +1,20 @@
+{
+  "name": "ai-git-commits",
+  "module": "src/cli.ts",
+  "type": "module",
+  "scripts": {
+    "lint": "biome check --formatter-enabled=true --linter-enabled=true --organize-imports-enabled=true --fix src"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.9.4",
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "@google/generative-ai": "^0.24.1",
+    "commander": "^14.0.0",
+    "inquirer": "^12.6.3"
+  }
+}
