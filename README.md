@@ -17,13 +17,13 @@ AI Commit is a CLI tool that leverages AI to enhance your Git workflow. Generate
 
 ```bash
 # Install globally with Bun
-bun add -g gitai
-npm install -g gitai
-yarn global add gitai
+bun add -g @its_4_nik/gitai
+npm install -g @its_4_nik/gitai
+yarn global add @its_4_nik/gitai
 
 # Or run directly with:
-bunx gitai
-npx gitai
+bunx @its_4_nik/gitai
+npx @its_4_nik/gitai
 ```
 
 ## Configuration ⚙️
