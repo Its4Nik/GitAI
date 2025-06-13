@@ -1,3 +1,4 @@
 .gitai.json
 gitai-debug.json
 node_modules
+dist
