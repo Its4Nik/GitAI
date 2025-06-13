@@ -2,7 +2,7 @@
 
 ![gitai CLI](https://img.shields.io/badge/Bun-v1.0.0-ffd43b?logo=bun) [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
-AI Commit is a CLI tool that leverages AI to enhance your Git workflow. Generate commit messages, suggest semantic version bumps, create changelogs, and more - all powered by AI providers like Google Gemini, Ollama, and OpenAI.
+GitAi is a CLI tool that leverages AI to enhance your Git workflow. Generate commit messages, suggest semantic version bumps, create changelogs, and more - all powered by AI providers like Google Gemini, Ollama, and OpenAI.
 
 ## Features ✨
 
