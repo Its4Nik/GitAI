@@ -2,3 +2,4 @@
 gitai-debug.json
 node_modules
 dist
+.bump.sh
