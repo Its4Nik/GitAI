@@ -5,8 +5,6 @@ export function generateCommitPrompt(
   diff: string,
   template = "conventional"
 ): string {
-  console.debug(template);
-
   let systemMessage = "Generate a commit message based on the following diff:";
 
   switch (template) {
