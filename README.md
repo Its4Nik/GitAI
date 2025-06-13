@@ -128,7 +128,7 @@ AI Commit supports multiple commit templates:
 
 | Provider | Models                  | Required Config         |
 |----------|-------------------------|-------------------------|
-| Google Gemini | `gemini-pro`, `gemini-1.5-flash` | API Key                |
+| Google Gemini | `gemini-pro`, `gemini-1.5-flash`, `gemini-2.0-flash`, `gemini-2.0-flash-lite`, | API Key                |
 | Ollama   | `llama3`, `mistral`, etc. | Base URL (optional)    |
 | OpenAI   | `gpt-4`, `gpt-3.5-turbo` | API Key                |
 
@@ -168,22 +168,7 @@ Detailed logs are saved to `gitai-debug.log`
 
 ## Contributing 🤝
 
-Contributions are welcome! Here's how to set up the project:
-
-```bash
-# Clone repository
-git clone https://github.com/Its4Nik/gitai.git
-cd gitai
-
-# Install dependencies
-bun install
-
-# Build the project
-bun run build
-
-# Link for local development
-bun link
-```
+Please See [Contributing](./CONTRIBUTE.md)
 
 ## License 📄
 
