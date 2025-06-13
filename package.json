@@ -1,6 +1,6 @@
 {
   "name": "@its_4_nik/gitai",
-  "version": "1.0.13",
+  "version": "1.0.14",
   "bin": {
     "gitai": "./dist/cli.js"
   },
