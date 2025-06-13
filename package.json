@@ -25,7 +25,7 @@
   "scripts": {
     "build": "bun build ./src/cli.ts --outfile ./dist/cli.js --production --target=bun --minify",
     "lint": "biome check --formatter-enabled=true --linter-enabled=true --organize-imports-enabled=true --fix src",
-    "publish": "bun build && "
+    "publish": "bun build && npm publish --access public"
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
