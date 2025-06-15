@@ -4,6 +4,9 @@
   "bin": {
     "gitai": "./dist/gitai"
   },
+  "repository": {
+    "url": "https://github.com/Its4Nik/GitAI"
+  },
   "main": "dist/cli.js",
   "module": "src/cli.ts",
   "license": "MIT",
