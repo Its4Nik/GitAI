@@ -39,11 +39,8 @@ jobs:
         run: |
           TAG_NAME=${GITHUB_REF##*/}
           echo "Setting version to $TAG_NAME"
-          if git rev-parse -q --verify "refs/tags/$TAG_NAME" >/dev/null; then
-            echo "Tag $TAG_NAME already exists — skipping npm version"
-          else
-            npm version "$TAG_NAME"
-          fi
+          npm version "$TAG_NAME" --force
+
 
       - name: Install dependencies
         run: bun install
