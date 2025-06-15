@@ -52,5 +52,4 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
-          bun config set registry https://registry.npmjs.org/
-          bun publish --access public
+          bun publish --access public --registry=https://registry.npmjs.org
