@@ -10,6 +10,7 @@ GitAi is a CLI tool that leverages AI to enhance your Git workflow. Generate com
 - **Semantic Version Suggestions**: Get version bump recommendations (major/minor/patch)
 - **Changelog Generation**: Automatically create detailed changelogs
 - **Multiple AI Providers**: Support for Google Gemini, Ollama, OpenAI, and more
+- **Diff Summary**: Create summaries of changes between 2 commits or tags.
 - **Commit Templates**: Conventional Commits, Angular, Gitmoji, and custom formats
 - **Debug Tools**: Track API usage and debug AI interactions
 
@@ -73,6 +74,62 @@ gitai changelog
 # Save changelog to file
 gitai changelog --output CHANGELOG.md
 ```
+
+### Create diff summary
+
+```bash
+# Print to console
+gitai diff-summary HEAD v1.1.3
+```
+
+```
+Diff Summary (HEAD → v1.1.3):
+
+The diff reveals several significant changes related to publishing, dependency management, and overall workflow. The `release-publish.yaml` workflow has been modified to remove permissions for `id-token`, simplify the version setting process by directly calling `npm version` without checking for existing tags, and transition to `bun publish` for publishing to npm using a `NODE_AUTH_TOKEN` environment variable. Additionally, the `bun.lock` file shows that the `ignore` package was removed, and several dependencies were updated including `camelcase` and `glob`. The `package.json` file had a version change to `1.0.14`, removed the repository URL, and had a minor update to typescript version dependencies.
+
+Here's a short listing of changes:
+*   `.github/workflows/release-publish.yaml`: Modified publishing workflow to use bun, and updated versioning logic.
+*   `bun.lock`: Removed `ignore` package and updated a number of packages.
+*   `package.json`: Version bump and repository url removal.
+
+**Really short summary: The workflow transitions to using bun for publishing, updates dependencies, and removes repository URL.**
+```
+
+---
+
+```bash
+# Format as markdown
+gitai diff-summary --markdown HEAD v1.1.3
+```
+
+```markdown
+## Diff Summary: HEAD → v1.1.3
+
+The changes between `HEAD` and `v1.1.3` involve modifications to the release publishing workflow and dependency updates.
+
+Here's a summary of the key differences:
+
+*   **Release Workflow:**
+    *   The release workflow (`.github/workflows/release-publish.yaml`) had several modifications.
+    *   The `permissions` block used for authentication was removed.
+    *   The workflow no longer checks for the existence of a tag before executing `npm version`, instead always running `npm version "$TAG_NAME"`
+    *   The workflow was updated to use bun to publish to npm.
+*   **Dependency Updates:**
+    *   The `bun.lock` file shows several dependency version updates, including `camelcase` and `glob`.
+    *   The `ignore` dependency was removed from `bun.lock`
+
+Short listing of changes:
+* Removed permissions block from github workflow
+* Changed publishing mechanism to use bun
+* Upgraded many dependencies in bun.lock
+* Removed ignore dependency
+* Removed repository metadata
+
+Breaking changes: None
+```
+
+
+
 
 ### Debug API Usage
 
