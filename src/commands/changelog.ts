@@ -7,51 +7,57 @@ import { type GitCommit, getRecentCommits } from "../utils/git";
 import { stripMarkdownFences } from "../utils/string";
 
 function formatCommitForChangelog(commit: GitCommit): string {
-	return `Commit: ${commit.hash}\nAuthor: ${commit.author}\nDate: ${commit.date}\n\n${commit.subject}\n\n${commit.body}`;
+  return `Commit: ${commit.hash}\nAuthor: ${commit.author}\nDate: ${commit.date}\n\n${commit.subject}\n\n${commit.body}`;
 }
 
-export async function changelogCommand(options: { output?: string }) {
-	try {
-		const config = await loadConfig();
-		const provider = getProvider(config.defaultProvider);
+export async function changelogCommand(options: {
+  output?: string;
+  latest?: boolean;
+}) {
+  try {
+    const config = await loadConfig();
+    const provider = getProvider(config.defaultProvider);
 
-		// Get recent commits using configured max
-		const commits = getRecentCommits(config.maxCommits || 10);
-		if (commits.length === 0) {
-			console.log("No commits found since last tag");
-			return;
-		}
+    // Get recent commits - either 1 if --latest, or configured max
+    const commitCount = options.latest ? 1 : config.maxCommits || 10;
+    const commits = getRecentCommits(commitCount);
 
-		// Generate changelog prompt with commit details
-		const formattedCommits = commits.map(formatCommitForChangelog);
-		const prompt = generateChangelogPrompt(formattedCommits);
+    if (commits.length === 0) {
+      console.log("No commits found since last tag");
+      return;
+    }
 
-		const changelog = await provider.generate(prompt, {
-			model: config.defaultModel,
-			...config.providers?.[config.defaultProvider],
-		});
+    // Generate changelog prompt with commit details
+    const formattedCommits = commits.map(formatCommitForChangelog);
+    const prompt = generateChangelogPrompt(formattedCommits);
 
-		// Clean and process the generated changelog
-		const cleanedChangelog = stripMarkdownFences(changelog).trim();
+    const changelog = await provider.generate(prompt, {
+      model: config.defaultModel,
+      ...config.providers?.[config.defaultProvider],
+    });
 
-		// Write to file or console
-		if (options.output) {
-			await write(options.output, cleanedChangelog);
-			console.log(`✅ Changelog written to ${options.output}`);
-		} else {
-			console.log("\nGenerated changelog:\n");
-			console.log(cleanedChangelog);
-		}
-	} catch (error) {
-		console.error("❌ Error:", error instanceof Error ? error.message : error);
-		process.exit(1);
-	}
+    // Clean and process the generated changelog
+    const cleanedChangelog = stripMarkdownFences(changelog).trim();
+
+    // Write to file or console
+    if (options.output) {
+      await write(options.output, cleanedChangelog);
+      console.log(`✅ Changelog written to ${options.output}`);
+    } else {
+      console.log("\nGenerated changelog:\n");
+      console.log(cleanedChangelog);
+    }
+  } catch (error) {
+    console.error("❌ Error:", error instanceof Error ? error.message : error);
+    process.exit(1);
+  }
 }
 
 export function changelogCommandSetup(program: Command) {
-	program
-		.command("changelog")
-		.description("Generate changelog using AI")
-		.option("-o, --output <file>", "Output file (default: print to console)")
-		.action(changelogCommand);
+  program
+    .command("changelog")
+    .description("Generate changelog using AI")
+    .option("-o, --output <file>", "Output file (default: print to console)")
+    .option("-l, --latest", "Generate changelog only for the latest commit")
+    .action(changelogCommand);
 }
