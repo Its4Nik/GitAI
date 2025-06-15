@@ -2,7 +2,7 @@
   "name": "@its_4_nik/gitai",
   "version": "1.0.14",
   "bin": {
-    "gitai": "./dist/cli.js"
+    "gitai": "./dist/gitai"
   },
   "main": "dist/cli.js",
   "module": "src/cli.ts",
@@ -30,8 +30,7 @@
   },
   "type": "module",
   "scripts": {
-    "build": "bun build ./src/cli.ts --outfile ./dist/cli.js --production --target=bun --minify",
-    "prepublishOnly": "bun run build",
+    "build": "GITAI_VERSION=$(cat ./package.json | jq .version) bun build ./src/cli.ts --outfile ./dist/gitai --compile --production --target=bun --minify --env 'GITAI_*'",
     "lint": "biome check --formatter-enabled=true --linter-enabled=true --organize-imports-enabled=true --fix src"
   },
   "devDependencies": {
@@ -43,6 +42,7 @@
   },
   "dependencies": {
     "@google/generative-ai": "^0.24.1",
+    "@naerth/commander-autocomplete": "^0.0.10-rc",
     "commander": "^14.0.0",
     "inquirer": "^12.6.3",
     "ollama": "^0.5.16"

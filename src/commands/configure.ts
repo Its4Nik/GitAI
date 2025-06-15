@@ -1,5 +1,6 @@
 import { existsSync } from "node:fs";
 import { join } from "node:path";
+import type { Command } from "commander";
 import inquirer from "inquirer";
 import { PROVIDERS } from "../ai/providers";
 import {
@@ -10,7 +11,7 @@ import {
 } from "../config";
 import { COMMIT_TEMPLATES } from "../prompts/templates";
 
-export async function configureCommand() {
+async function configureCommand() {
 	// Determine where to save config
 	const { location } = await inquirer.prompt({
 		type: "list",
@@ -139,4 +140,11 @@ export async function configureCommand() {
 			location === "project" ? "project" : "user"
 		} config!`,
 	);
+}
+
+export function configureCommandSetup(program: Command) {
+	program
+		.command("configure")
+		.description("Configure GitAI")
+		.action(configureCommand);
 }

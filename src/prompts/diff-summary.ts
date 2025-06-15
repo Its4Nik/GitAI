@@ -1,9 +1,9 @@
 export function generateDiffPrompt(
-  diff: string,
-  fromRef: string,
-  toRef: string
+	diff: string,
+	fromRef: string,
+	toRef: string,
 ): string {
-  return `Analyze the following Git diff and provide a comprehensive summary of changes:
+	return `Analyze the following Git diff and provide a comprehensive summary of changes:
 
 Comparison: ${fromRef} → ${toRef}
 

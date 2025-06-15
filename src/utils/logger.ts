@@ -89,7 +89,9 @@ export class DebugLogger {
 	}
 
 	async summarize() {
-		if (!this.enabled) return;
+		if (!this.enabled) {
+			return;
+		}
 		await this.flush();
 
 		if (!existsSync(LOG_PATH)) {

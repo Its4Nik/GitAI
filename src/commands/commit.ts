@@ -1,3 +1,4 @@
+import type { Command } from "commander";
 import inquirer from "inquirer";
 import { getProvider } from "../ai/providers";
 import { loadConfig } from "../config";
@@ -9,7 +10,7 @@ interface CommitOptions {
 	model?: string;
 }
 
-export async function commitCommand(options: CommitOptions) {
+async function commitCommand(options: CommitOptions) {
 	try {
 		const diff = await getStagedDiff();
 		const config = await loadConfig();
@@ -45,4 +46,13 @@ export async function commitCommand(options: CommitOptions) {
 		console.error("❌ Error:", error instanceof Error ? error.message : error);
 		process.exit(1);
 	}
+}
+
+export function commitCommandSetup(program: Command) {
+	program
+		.command("commit")
+		.description("Generate commit message using AI")
+		.option("-t, --template <template>", "Commit message template")
+		.option("-m, --model <model>", "AI model to use")
+		.action(commitCommand);
 }
