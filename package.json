@@ -2,7 +2,7 @@
   "name": "@its_4_nik/gitai",
   "version": "1.1.3",
   "bin": {
-    "gitai": "./dist/gitai"
+    "gitai": "./dist/gitai.js"
   },
   "repository": {
     "url": "https://github.com/Its4Nik/GitAI"
@@ -33,7 +33,7 @@
   },
   "type": "module",
   "scripts": {
-    "build": "GITAI_VERSION=$(cat ./package.json | jq .version) bun build ./src/cli.ts --outfile ./dist/gitai --compile --production --target=bun --minify --env 'GITAI_*'",
+    "build": "GITAI_VERSION=$(cat ./package.json | jq .version) bun build ./src/cli.ts --outfile ./dist/gitai.js --production --target=bun --minify --env 'GITAI_*'",
     "lint": "biome check --formatter-enabled=true --linter-enabled=true --organize-imports-enabled=true --fix src"
   },
   "devDependencies": {
