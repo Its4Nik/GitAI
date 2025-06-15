@@ -39,7 +39,7 @@ jobs:
         run: |
           TAG_NAME=${GITHUB_REF##*/}
           echo "Setting version to $TAG_NAME"
-          npm version "$TAG_NAME" --force
+          npm version "$TAG_NAME" --no-git-tag-version
 
 
       - name: Install dependencies
