@@ -4,6 +4,7 @@ import { changelogCommandSetup } from "./commands/changelog";
 import { commitCommand } from "./commands/commit";
 import { configureCommand } from "./commands/configure";
 import { versionCommandSetup } from "./commands/version";
+import { diffSummaryCommandSetup } from "./commands/diff-summary";
 import { DebugLogger } from "./utils/logger";
 
 const program = new Command();
@@ -30,6 +31,7 @@ program
   .action(commitCommand);
 
 versionCommandSetup(program);
+diffSummaryCommandSetup(program);
 changelogCommandSetup(program);
 
 program

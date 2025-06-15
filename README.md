@@ -176,4 +176,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Support ❤️
 
-If you find this tool useful, please consider starring the repository on GitHub!
+If you find this tool useful, please consider starring the repository on [GitHub](https://github.com/Its4Nik/GitAI)!
