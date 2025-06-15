@@ -1,11 +1,13 @@
 #!/usr/bin/env bun
-import { program } from "@naerth/commander-autocomplete";
+import { Command } from "commander";
 import { changelogCommandSetup } from "./commands/changelog";
 import { commitCommandSetup } from "./commands/commit";
 import { configureCommandSetup } from "./commands/configure";
 import { diffSummaryCommandSetup } from "./commands/diff-summary";
 import { versionCommandSetup } from "./commands/version";
 import { DebugLogger } from "./utils/logger";
+
+const program = new Command();
 
 program
 	.name("GitAI")
@@ -38,3 +40,4 @@ program
 	});
 
 program.parse(process.argv);
+program.parse()
