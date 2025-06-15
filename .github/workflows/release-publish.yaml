@@ -48,8 +48,7 @@ jobs:
       - name: Build project
         run: bun run build
 
-      - name: Publish to npm
+      - name: Publish
+        run: npm publish --provenance --access public --scope=@its_4_nik
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: |
-          bun publish --access public --registry=https://registry.npmjs.org
