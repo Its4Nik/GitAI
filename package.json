@@ -1,6 +1,6 @@
 {
   "name": "@its_4_nik/gitai",
-  "version": "1.0.14",
+  "version": "1.1.3",
   "bin": {
     "gitai": "./dist/gitai"
   },
