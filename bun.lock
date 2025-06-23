@@ -68,7 +68,7 @@
 
     "@inquirer/type": ["@inquirer/type@3.0.7", "", { "peerDependencies": { "@types/node": ">=18" }, "optionalPeers": ["@types/node"] }, "sha512-PfunHQcjwnju84L+ycmcMKB/pTPIngjUJvfnRhKY6FKPuYXlM4aQCb/nIdTFR6BEhMjFvngzvng/vBAJMZpLSA=="],
 
-    "@types/bun": ["@types/bun@1.2.16", "", { "dependencies": { "bun-types": "1.2.16" } }, "sha512-1aCZJ/6nSiViw339RsaNhkNoEloLaPzZhxMOYEa7OzRzO41IGg5n/7I43/ZIAW/c+Q6cT12Vf7fOZOoVIzb5BQ=="],
+    "@types/bun": ["@types/bun@1.2.17", "", { "dependencies": { "bun-types": "1.2.17" } }, "sha512-l/BYs/JYt+cXA/0+wUhulYJB6a6p//GTPiJ7nV+QHa8iiId4HZmnu/3J/SowP5g0rTiERY2kfGKXEK5Ehltx4Q=="],
 
     "@types/node": ["@types/node@24.0.1", "", { "dependencies": { "undici-types": "~7.8.0" } }, "sha512-MX4Zioh39chHlDJbKmEgydJDS3tspMP/lnQC67G3SWsTnb9NeYVWOjkxpOSy4oMfPs4StcWHwBrvUb4ybfnuaw=="],
 
@@ -78,7 +78,7 @@
 
     "ansi-styles": ["ansi-styles@4.3.0", "", { "dependencies": { "color-convert": "^2.0.1" } }, "sha512-zbB9rCJAT1rbjiVDb2hqKFHNYLxgtk8NURxZ3IZwD3F6NtxbXZQCnnSi1Lkx+IDohdPlFp222wVALIheZJQSEg=="],
 
-    "bun-types": ["bun-types@1.2.16", "", { "dependencies": { "@types/node": "*" } }, "sha512-ciXLrHV4PXax9vHvUrkvun9VPVGOVwbbbBF/Ev1cXz12lyEZMoJpIJABOfPcN9gDJRaiKF9MVbSygLg4NXu3/A=="],
+    "bun-types": ["bun-types@1.2.17", "", { "dependencies": { "@types/node": "*" } }, "sha512-ElC7ItwT3SCQwYZDYoAH+q6KT4Fxjl8DtZ6qDulUFBmXA8YB4xo+l54J9ZJN+k2pphfn9vk7kfubeSd5QfTVJQ=="],
 
     "chardet": ["chardet@0.7.0", "", {}, "sha512-mT8iDcrh03qDGRRmoA2hmBJnxpllMR+0/0qlzjqZES6NdiWDcZkCNAk4rPFZ9Q85r27unkiNNg8ZOiwZXBHwcA=="],
 
