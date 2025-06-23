@@ -37,7 +37,7 @@
     "lint": "biome check --formatter-enabled=true --linter-enabled=true --organize-imports-enabled=true --fix src"
   },
   "devDependencies": {
-    "@biomejs/biome": "1.9.4",
+    "@biomejs/biome": "2.0.5",
     "@types/bun": "latest"
   },
   "peerDependencies": {
